@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ichi 一 · Learn one natural Japanese expression a day</title>
+<meta name="description" content="Ichi teaches one natural, useful Japanese expression a day, with audio and notes on when to use it.">
+<meta property="og:title" content="Ichi 一">
+<meta property="og:description" content="Learn one natural Japanese expression a day, with audio and notes on when to use it.">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; margin: 1.5rem 0; padding: 0; list-style: none; }
+  .stores a { display: inline-block; padding: 12px 20px; border-radius: 12px; background: var(--accent);
+    color: #fff; font-weight: 600; text-decoration: none; min-height: 48px; }
+  .soon { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+</style>
+<script>
+  // The store links go here at launch. Until then, this page says Ichi is coming soon.
+  // Messages people already shared point at this page, so it is the only thing to change.
+  var STORES = { ios: '', android: '' };
+  (function () {
+    var ua = navigator.userAgent || '';
+    var target = /android/i.test(ua) ? STORES.android
+      : /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1) ? STORES.ios
+      : '';
+    if (target) window.location.replace(target);
+  })();
+</script>
+</head>
+<body>
+<main>
+<h1>Ichi 一</h1>
+<p class="meta">Learn one natural Japanese expression a day.</p>
+<p>Each day, Ichi gives you one useful Japanese expression, with audio, its reading, and notes on when and with whom to use it. A few minutes a day, Japanese you can actually say.</p>
+<div id="soon" class="soon">
+  <p><strong>Coming soon</strong> to the App Store and Google Play.</p>
+</div>
+<ul id="stores" class="stores" hidden>
+  <li><a id="ios" href="#">Download on the App Store</a></li>
+  <li><a id="android" href="#">Get it on Google Play</a></li>
+</ul>
+<script>
+  // On a computer, or if the redirect above did not run, show whichever store links exist.
+  (function () {
+    var any = false;
+    ['ios', 'android'].forEach(function (key) {
+      var link = document.getElementById(key);
+      if (STORES[key]) { link.href = STORES[key]; any = true; } else { link.parentNode.remove(); }
+    });
+    if (any) {
+      document.getElementById('stores').hidden = false;
+      document.getElementById('soon').remove();
+    }
+  })();
+</script>
+<footer><a href="../privacy/">Privacy Policy</a> · <a href="../terms/">Terms of Use</a> · <a href="mailto:ichiiapp26@gmail.com">ichiiapp26@gmail.com</a></footer>
+</main>
+</body>
+</html>
